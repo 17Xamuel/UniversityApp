@@ -14,11 +14,33 @@ import Feather from "react-native-vector-icons/Feather";
 import Post from "../Components/post";
 import posts from "../data/feedData";
 
+const DATA = [
+  {
+    id: "1",
+    user: "Xamuel",
+    post_text: `Hey guys, I would like to welcome you to the TheBeacon, Our socialApp for Sharing stuff Hey guys, I would like to welcome you to the TheBeacon, Our social App for Sharing stuff`,
+    posted_by: "Dean's Office",
+    date_posted: "2/05/2021",
+    post_image: require("../assets/post.jpg"),
+    post_dp: require("../assets/lira-logo.png"),
+  },
+  {
+    id: "2",
+    user: "Xamuel",
+    post_text: `Hey guys, I would like to welcome you to the TheBeacon, Our socialApp for Sharing stuff Hey guys, I would like to welcome you to the TheBeacon, Our social App for Sharing stuff`,
+    posted_by: "Dean's Office",
+    date_posted: "2/05/2021",
+    post_image: require("../assets/post.jpg"),
+    post_dp: require("../assets/lira-logo.png"),
+  },
+];
+
 class Feed extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+  renderItem = ({ item }) => <Post post={item} />;
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -30,14 +52,11 @@ class Feed extends Component {
             </View>
           </View>
           <View style={styles.postsCtr}>
-            <View
-              style={{ borderBottomColor: "#a3a3a3", borderBottomWidth: 1 }}
-            >
-              <ScrollView>
-                <Post />
-                <Post />
-              </ScrollView>
-            </View>
+            <FlatList
+              data={DATA}
+              renderItem={this.renderItem}
+              keyExtractor={(item) => item.id}
+            />
           </View>
         </View>
       </SafeAreaView>
