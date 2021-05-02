@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "UniversityApp",
+    "name": "TheBeacon",
     "slug": "UniversityApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/appIcon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -23,7 +23,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.yammie.thebeacon",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
