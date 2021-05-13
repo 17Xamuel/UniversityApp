@@ -12,18 +12,30 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 class Home extends Component {
   constructor(props) {
     super(props);
+    this.loData();
     this.state = { user: "Xamuel" };
   }
+  loData = async () => {
+    try {
+      const value = await AsyncStorage.getItem("hasBoarding");
+      if (value !== null) {
+        this.setState({ ...this.state, lo: value });
+      }
+    } catch (e) {
+      // error reading value
+    }
+  };
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Text style={styles.headerText}>TheBeacon</Text>
+            <Text style={styles.headerText}>TheBeacon {this.state.lo}</Text>
             <View style={styles.headerIcons}>
               <Icon
                 style={{ paddingHorizontal: 10 }}
@@ -41,7 +53,12 @@ class Home extends Component {
           </View>
           <View style={styles.logo}>
             <Animatable.View animation="bounceIn" delay={500}>
-              <View style={styles.imageWrapper}>
+              <TouchableOpacity
+                style={styles.imageWrapper}
+                onPress={() => {
+                  this.props.navigation.navigate("Attend");
+                }}
+              >
                 <LinearGradient
                   style={styles.image}
                   colors={["rgba(0,0,0,0.5)", "transparent"]}
@@ -54,10 +71,10 @@ class Home extends Component {
                       textAlign: "center",
                     }}
                   >
-                    XA
+                    Attend
                   </Text>
                 </LinearGradient>
-              </View>
+              </TouchableOpacity>
             </Animatable.View>
             <View>
               <Text

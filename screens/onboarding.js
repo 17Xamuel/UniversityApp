@@ -8,12 +8,19 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 class onboarding extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { data: "" };
   }
+  getdata = async () => {
+    try {
+    } catch (error) {
+      console.log(error);
+    }
+  };
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -50,7 +57,8 @@ class onboarding extends Component {
           <View style={styles.btnCtr}>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: "#0053FF" }]}
-              onPress={() => {
+              onPress={async () => {
+                await AsyncStorage.setItem("hasBoarding", "true");
                 this.props.navigation.navigate("Login");
               }}
             >
@@ -63,20 +71,6 @@ class onboarding extends Component {
                 }}
               >
                 Accept
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.button, { backgroundColor: "#eee" }]}
-            >
-              <Text
-                style={{
-                  fontSize: 20,
-                  color: "#000",
-                  paddingBottom: 5,
-                  marginRight: 15,
-                }}
-              >
-                Exit
               </Text>
             </TouchableOpacity>
           </View>
