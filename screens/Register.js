@@ -12,6 +12,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Register(props) {
   return (
@@ -56,19 +57,6 @@ export default function Register(props) {
             </View>
             <View style={styles.inputCtr}>
               <Feather
-                name="user"
-                size={20}
-                color="#000"
-                style={styles.text_input_icon}
-              />
-              <TextInput
-                placeholder="Select Your Class"
-                autoCapitalize="none"
-                style={styles.text_input}
-              />
-            </View>
-            <View style={styles.inputCtr}>
-              <Feather
                 name="lock"
                 size={20}
                 color="#000"
@@ -90,7 +78,8 @@ export default function Register(props) {
             >
               <TouchableOpacity
                 style={styles.button}
-                onPress={() => {
+                onPress={async () => {
+                  await AsyncStorage.setItem("hasBoarding", "true");
                   props.navigation.navigate("BottomTabs");
                 }}
               >

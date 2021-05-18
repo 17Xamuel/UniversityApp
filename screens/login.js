@@ -12,6 +12,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Login(props) {
   return (
@@ -64,7 +65,8 @@ export default function Login(props) {
             >
               <TouchableOpacity
                 style={styles.button}
-                onPress={() => {
+                onPress={async () => {
+                  await AsyncStorage.setItem("hasBoarding", "true");
                   props.navigation.navigate("BottomTabs");
                 }}
               >

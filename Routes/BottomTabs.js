@@ -5,6 +5,7 @@ import Home from "../screens/Home";
 import Links from "../screens/Links";
 import Feed from "../screens/Feed";
 import News from "../screens/News";
+import HomeStack from "./HomeStack";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -13,7 +14,7 @@ function BottomTabs() {
     <Tab.Navigator activeColor="#fff" shifting="true">
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeStack}
         options={{
           tabBarLabel: "Home",
           tabBarColor: "#0dd940",

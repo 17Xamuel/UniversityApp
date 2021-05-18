@@ -17,25 +17,15 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.loData();
     this.state = { user: "Xamuel" };
   }
-  loData = async () => {
-    try {
-      const value = await AsyncStorage.getItem("hasBoarding");
-      if (value !== null) {
-        this.setState({ ...this.state, lo: value });
-      }
-    } catch (e) {
-      // error reading value
-    }
-  };
+
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Text style={styles.headerText}>TheBeacon {this.state.lo}</Text>
+            <Text style={styles.headerText}>TheBeacon</Text>
             <View style={styles.headerIcons}>
               <Icon
                 style={{ paddingHorizontal: 10 }}
@@ -84,7 +74,12 @@ class Home extends Component {
           </View>
           <View style={styles.actions}>
             <View style={styles.saveCtr}>
-              <TouchableOpacity style={styles.save}>
+              <TouchableOpacity
+                style={styles.save}
+                onPress={() => {
+                  this.props.navigation.navigate("ClassNotes");
+                }}
+              >
                 <LinearGradient
                   style={styles.saveIconCtr}
                   colors={["rgba(0,0,0,0.5)", "transparent"]}
@@ -95,8 +90,9 @@ class Home extends Component {
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.save}
-                animation="fadeInLeftBig"
-                duration={500}
+                onPress={() => {
+                  this.props.navigation.navigate("CourseWork");
+                }}
               >
                 <LinearGradient
                   style={styles.saveIconCtr}
@@ -108,7 +104,12 @@ class Home extends Component {
               </TouchableOpacity>
             </View>
             <View style={styles.saveCtr}>
-              <TouchableOpacity style={styles.save}>
+              <TouchableOpacity
+                style={styles.save}
+                onPress={() => {
+                  this.props.navigation.navigate("ClassFeed");
+                }}
+              >
                 <LinearGradient
                   style={styles.saveIconCtr}
                   colors={["rgba(0,0,0,0.5)", "transparent"]}
@@ -117,7 +118,12 @@ class Home extends Component {
                 </LinearGradient>
                 <Text style={{ fontSize: 16 }}>Feed</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.save}>
+              <TouchableOpacity
+                style={styles.save}
+                onPress={() => {
+                  this.props.navigation.navigate("ClassChat");
+                }}
+              >
                 <LinearGradient
                   style={styles.saveIconCtr}
                   colors={["rgba(0,0,0,0.5)", "transparent"]}

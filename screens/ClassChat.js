@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Text, View } from "react-native";
 
-class Attend extends Component {
+class ClassChat extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -21,4 +21,4 @@ class Attend extends Component {
   }
 }
 
-export default Attend;
+export default ClassChat;
