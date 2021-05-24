@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import BottomTabs from "./BottomTabs";
 import Login from "../screens/login";
@@ -12,6 +13,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ActivityIndicator, View, Alert } from "react-native";
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 class InitialStack extends Component {
   constructor(props) {
@@ -49,9 +51,7 @@ class InitialStack extends Component {
     if (this.state.start == "true") {
       return (
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{ header: () => null }}>
-            <Stack.Screen name="BottomTabs" component={BottomTabs} />
-          </Stack.Navigator>
+          <DrawerNav />
         </NavigationContainer>
       );
     } else {
@@ -61,7 +61,6 @@ class InitialStack extends Component {
             <Stack.Screen name="Onboard" component={Onboarding} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
-            <Stack.Screen name="Attend" component={Attend} />
             <Stack.Screen name="BottomTabs" component={BottomTabs} />
           </Stack.Navigator>
         </NavigationContainer>
@@ -71,3 +70,11 @@ class InitialStack extends Component {
 }
 
 export default InitialStack;
+
+function DrawerNav() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={BottomTabs} />
+    </Drawer.Navigator>
+  );
+}

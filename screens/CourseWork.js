@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, Text, View } from "react-native";
+import { Button, Image, SafeAreaView, Text, View } from "react-native";
+import Blank from "../Components/blank";
 
 class CourseWork extends Component {
   constructor(props) {
@@ -8,15 +9,9 @@ class CourseWork extends Component {
   }
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello Xamuel</Text>
-        <Button
-          title="Go Back"
-          onPress={() => {
-            this.props.navigation.goBack();
-          }}
-        />
-      </View>
+      <SafeAreaView style={{ flex: 1 }}>
+        <Blank title="!!!Oops, No Course Work Available" />
+      </SafeAreaView>
     );
   }
 }

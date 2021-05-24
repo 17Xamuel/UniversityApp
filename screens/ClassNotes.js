@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Button, Text, View } from "react-native";
+import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import Feather from "react-native-vector-icons/Feather";
+import { CourseNotes } from "../Components/notes";
 
 class ClassNotes extends Component {
   constructor(props) {
@@ -8,17 +10,14 @@ class ClassNotes extends Component {
   }
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello Xamuel</Text>
-        <Button
-          title="Go Back"
-          onPress={() => {
-            this.props.navigation.goBack();
-          }}
-        />
-      </View>
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flex: 1 }}>
+          <CourseNotes />
+        </View>
+      </SafeAreaView>
     );
   }
 }
 
 export default ClassNotes;
+const styles = StyleSheet.create({});
