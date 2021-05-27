@@ -7,12 +7,12 @@ import BottomTabs from "./BottomTabs";
 import Login from "../screens/login";
 import Register from "../screens/Register";
 import Onboarding from "../screens/onboarding";
-import Attend from "../screens/Attend";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ActivityIndicator, View, Alert } from "react-native";
 
 const Stack = createStackNavigator();
+
 const Drawer = createDrawerNavigator();
 
 class InitialStack extends Component {
@@ -48,10 +48,14 @@ class InitialStack extends Component {
   };
   render() {
     const v = this.state.lo === "true" ? "tt" : "ff";
+    console.log(this.state.start);
+    while (this.state.start == "undefined") {}
     if (this.state.start == "true") {
       return (
         <NavigationContainer>
-          <DrawerNav />
+          <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen name="Home" component={BottomTabs} />
+          </Drawer.Navigator>
         </NavigationContainer>
       );
     } else {
@@ -70,11 +74,3 @@ class InitialStack extends Component {
 }
 
 export default InitialStack;
-
-function DrawerNav() {
-  return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={BottomTabs} />
-    </Drawer.Navigator>
-  );
-}

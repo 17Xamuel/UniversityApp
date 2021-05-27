@@ -25,7 +25,18 @@ class Home extends Component {
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Text style={styles.headerText}>TheBeacon</Text>
+            <View style={{ flexDirection: "row" }}>
+              <Feather
+                style={{ marginTop: 5 }}
+                name="more-vertical"
+                size={25}
+                color="#000"
+                onPress={() => {
+                  this.props.navigation.openDrawer();
+                }}
+              />
+              <Text style={styles.headerText}>TheBeacon</Text>
+            </View>
             <View style={styles.headerIcons}>
               <Icon
                 style={{ paddingHorizontal: 10 }}
@@ -38,6 +49,9 @@ class Home extends Component {
                 name="user"
                 size={20}
                 color="#009783"
+                onPress={() => {
+                  this.props.navigation.openDrawer();
+                }}
               />
             </View>
           </View>

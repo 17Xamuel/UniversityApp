@@ -24,7 +24,18 @@ class News extends Component {
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.ctr}>
           <View style={styles.header}>
-            <Text style={{ fontSize: 20, fontWeight: "500" }}>Posts</Text>
+            <View style={{ flexDirection: "row" }}>
+              <Feather
+                style={{ marginTop: 1, paddingRight: 10 }}
+                name="menu"
+                size={25}
+                color="#000"
+                onPress={() => {
+                  this.props.navigation.openDrawer();
+                }}
+              />
+              <Text style={{ fontSize: 20, fontWeight: "500" }}>Posts</Text>
+            </View>
             <View style={styles.plusIconCtr}>
               <Feather name="plus" size={20} color="#fff" />
             </View>

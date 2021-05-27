@@ -17,7 +17,7 @@ class HomeStack extends Component {
     return (
       <Stack.Navigator>
         <Stack.Screen
-          name="Start"
+          name="HomeStack"
           component={Home}
           options={{ header: () => null }}
         />
