@@ -9,7 +9,6 @@ import {
   Image,
   Dimensions,
 } from "react-native";
-import Animated from "react-native-reanimated";
 import Feather from "react-native-vector-icons/Feather";
 import Post from "../Components/post";
 import posts from "../data/feedData";
@@ -40,9 +39,7 @@ class Feed extends Component {
     super(props);
     this.state = {};
   }
-  renderItem = ({ item }) => (
-    <Post post={item} navigation={this.props.navigation} />
-  );
+  renderItem = ({ item }) => <Post post={item} nav={this.props.navigation} />;
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>

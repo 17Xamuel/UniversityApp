@@ -12,7 +12,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 class Home extends Component {
   constructor(props) {
@@ -25,18 +24,7 @@ class Home extends Component {
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <View style={{ flexDirection: "row" }}>
-              <Feather
-                style={{ marginTop: 5 }}
-                name="more-vertical"
-                size={25}
-                color="#000"
-                onPress={() => {
-                  this.props.navigation.openDrawer();
-                }}
-              />
-              <Text style={styles.headerText}>TheBeacon</Text>
-            </View>
+            <Text style={styles.headerText}>TheBeacon</Text>
             <View style={styles.headerIcons}>
               <Icon
                 style={{ paddingHorizontal: 10 }}
@@ -49,9 +37,6 @@ class Home extends Component {
                 name="user"
                 size={20}
                 color="#009783"
-                onPress={() => {
-                  this.props.navigation.openDrawer();
-                }}
               />
             </View>
           </View>

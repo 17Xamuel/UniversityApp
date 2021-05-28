@@ -1,24 +1,25 @@
-import React from "react";
 import InitialStack from "./Routes/initialStack";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import React, { useCallback, useEffect, useState } from "react";
+import * as SplashScreen from "expo-splash-screen";
 
 export default function App() {
-  return <InitialStack />;
+  return <InitialStack isLoadingFirstTime={true} />;
 }
-
-// import React, { useCallback, useEffect, useState } from "react";
-// import { StyleSheet, Text, View } from "react-native";
-// import Feather from "react-native-vector-icons/Feather";
-// import * as SplashScreen from "expo-splash-screen";
-
 // export default function App() {
 //   const [appIsReady, setAppIsReady] = useState(false);
+//   const [isLoadingFirstTime, setIsLoadingFirstTime] = useState(true);
 
 //   useEffect(() => {
 //     async function prepare() {
 //       try {
-//         // Keep the splash screen visible while we fetch resources
+//         const value = await AsyncStorage.getItem("isLoadingFirstTime");
+//         if (value !== null) {
+//           setIsLoadingFirstTime(false);
+//         }
+
 //         await SplashScreen.preventAutoHideAsync();
-//         await new Promise((resolve) => setTimeout(resolve, 2000));
 //       } catch (e) {
 //         console.warn(e);
 //       } finally {
@@ -45,13 +46,5 @@ export default function App() {
 //     return null;
 //   }
 
-//   return (
-//     <View
-//       style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-//       onLayout={onLayoutRootView}
-//     >
-//       <Text>SplashScreen Demo!</Text>
-//       <Feather name="file-text" size={30} />
-//     </View>
-//   );
+//   return <InitialStack isLoadingFirstTime={isLoadingFirstTime} />;
 // }

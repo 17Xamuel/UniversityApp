@@ -2,12 +2,12 @@ import React from "react";
 import { Image, StyleSheet, Text, View, Dimensions } from "react-native";
 import { TouchableWithoutFeedback } from "react-native";
 
-export default function Post({ post, navigation }) {
+export default function Post({ post, nav }) {
   return (
     <TouchableWithoutFeedback
       style={{ borderBottomColor: "#a3a3a3", borderBottomWidth: 1 }}
       onPress={() => {
-        navigation.navigate("FeedDetails", { id: post.id });
+        nav.navigate("FeedDetails", { id: post.id });
       }}
     >
       <View style={styles.post}>

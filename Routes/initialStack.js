@@ -9,7 +9,7 @@ import Register from "../screens/Register";
 import Onboarding from "../screens/onboarding";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { ActivityIndicator, View, Alert } from "react-native";
+import { Alert, BackHandler } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -19,11 +19,11 @@ class InitialStack extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.loData();
+    // this.loData();
   }
   loData = async () => {
     try {
-      const value = await AsyncStorage.getItem("hasBoarding");
+      const value = await AsyncStorage.getItem("isLoadingFirstTime");
       if (value !== null) {
         this.setState({ ...this.state, start: value });
       } else {
@@ -47,18 +47,7 @@ class InitialStack extends Component {
     }
   };
   render() {
-    const v = this.state.lo === "true" ? "tt" : "ff";
-    console.log(this.state.start);
-    while (this.state.start == "undefined") {}
-    if (this.state.start == "true") {
-      return (
-        <NavigationContainer>
-          <Drawer.Navigator initialRouteName="Home">
-            <Drawer.Screen name="Home" component={BottomTabs} />
-          </Drawer.Navigator>
-        </NavigationContainer>
-      );
-    } else {
+    if (this.props.isLoadingFirstTime == true) {
       return (
         <NavigationContainer>
           <Stack.Navigator screenOptions={{ header: () => null }}>
@@ -67,6 +56,14 @@ class InitialStack extends Component {
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="BottomTabs" component={BottomTabs} />
           </Stack.Navigator>
+        </NavigationContainer>
+      );
+    } else {
+      return (
+        <NavigationContainer>
+          <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen name="Home" component={BottomTabs} />
+          </Drawer.Navigator>
         </NavigationContainer>
       );
     }

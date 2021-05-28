@@ -9,7 +9,6 @@ import {
   Image,
   Dimensions,
 } from "react-native";
-import Animated from "react-native-reanimated";
 import Feather from "react-native-vector-icons/Feather";
 import Post from "../Components/post";
 import posts from "../data/feedData";
