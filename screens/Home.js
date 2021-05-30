@@ -67,7 +67,7 @@ class Home extends Component {
             </Animatable.View>
             <View>
               <Text
-                style={{ fontSize: 17, textAlign: "center" }}
+                style={{ fontSize: 15, textAlign: "center" }}
               >{`Hi, ${this.state.user}`}</Text>
             </View>
           </View>
@@ -83,9 +83,9 @@ class Home extends Component {
                   style={styles.saveIconCtr}
                   colors={["rgba(0,0,0,0.5)", "transparent"]}
                 >
-                  <Feather name="file-text" size={24} color="#fff" />
+                  <Feather name="file-text" size={20} color="#fff" />
                 </LinearGradient>
-                <Text style={{ fontSize: 16 }}>Notes</Text>
+                <Text style={{ fontSize: 14 }}>Notes</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.save}
@@ -97,9 +97,9 @@ class Home extends Component {
                   style={styles.saveIconCtr}
                   colors={["rgba(0,0,0,0.5)", "transparent"]}
                 >
-                  <Feather name="file-plus" size={24} color="#fff" />
+                  <Feather name="file-plus" size={20} color="#fff" />
                 </LinearGradient>
-                <Text style={{ fontSize: 16 }}>Course Work</Text>
+                <Text style={{ fontSize: 14 }}>Course Work</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.saveCtr}>
@@ -113,9 +113,9 @@ class Home extends Component {
                   style={styles.saveIconCtr}
                   colors={["rgba(0,0,0,0.5)", "transparent"]}
                 >
-                  <Feather name="plus-circle" size={24} color="#fff" />
+                  <Feather name="plus-circle" size={20} color="#fff" />
                 </LinearGradient>
-                <Text style={{ fontSize: 16 }}>Feed</Text>
+                <Text style={{ fontSize: 14 }}>Feed</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.save}
@@ -127,9 +127,9 @@ class Home extends Component {
                   style={styles.saveIconCtr}
                   colors={["rgba(0,0,0,0.5)", "transparent"]}
                 >
-                  <Feather name="message-square" size={24} color="#fff" />
+                  <Feather name="message-square" size={20} color="#fff" />
                 </LinearGradient>
-                <Text style={{ fontSize: 16 }}>Chat</Text>
+                <Text style={{ fontSize: 14 }}>Chat</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
-    marginTop: 25,
+    marginTop: 35,
     paddingHorizontal: 25,
   },
   headerIcons: {

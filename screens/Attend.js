@@ -26,8 +26,13 @@ class Attend extends Component {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.formCtr}>
-          <TextInput variant="outlned" label="Class" />
-          <TextInput variant="outlned" label="Any Comment" />
+          <TextInput variant="outlned" mode="outlined" label="Class" />
+          <TextInput
+            variant="outlned"
+            mode="outlined"
+            multiline={true}
+            label="Any Comment"
+          />
           <Button title="Scan QR" onPress={this.handleCheck} />
           <View style={styles.resultCtr}>
             <View style={styles.logo}>
