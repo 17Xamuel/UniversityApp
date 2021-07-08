@@ -5,7 +5,9 @@ import ClassChat from "../screens/ClassChat";
 import ClassFeed from "../screens/ClassFeed";
 import ClassNotes from "../screens/ClassNotes";
 import CourseWork from "../screens/CourseWork";
+import FeedDetails from "../screens/FeedDetails";
 import Home from "../screens/Home";
+import BarcodeScanner from "../screens/qrcodescan";
 
 const Stack = createStackNavigator();
 class HomeStack extends Component {
@@ -26,6 +28,12 @@ class HomeStack extends Component {
         <Stack.Screen name="ClassNotes" component={ClassNotes} />
         <Stack.Screen name="ClassChat" component={ClassChat} />
         <Stack.Screen name="ClassFeed" component={ClassFeed} />
+        <Stack.Screen name="FeedDetails" component={FeedDetails} />
+        <Stack.Screen
+          name="QrCode"
+          component={BarcodeScanner}
+          options={{ header: () => null }}
+        />
       </Stack.Navigator>
     );
   }

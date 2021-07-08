@@ -11,16 +11,41 @@ import {
 import { TextInput } from "react-native-paper";
 import * as Animatable from "react-native-animatable";
 import Feather from "react-native-vector-icons/Feather";
+import { Camera } from "expo-camera";
+
+//barcode scanner
+import BarCodeScanner from "../Components/barcode";
+//barcode scanner
 class Attend extends Component {
   constructor(props) {
     super(props);
-    this.state = { checking: false };
+    this.state = {
+      hasCameraPermission: null,
+    };
   }
-  handleCheck = () => {
-    this.setState({ ...this.state, checking: true });
-    setTimeout(() => {
-      this.setState({ ...this.state, checking: false });
-    }, 3000);
+  componentDidMount = async () => {
+    this.getPermissionsAsync();
+    console.log(this.props.route.params.data);
+    if (this.props.route.params.data != null) {
+      alert(`Scanned Data: ${this.props.route.params.data}`);
+    }
+  };
+  handleQR = () => {
+    if (this.state.hasCameraPermission === null) {
+      alert("Scan QR Code requests for your Camera Permission");
+    }
+    if (this.state.hasCameraPermission === false) {
+      alert("Scan QR Code requests for your Permission");
+    }
+    if (this.state.hasCameraPermission === true) {
+      this.props.navigation.navigate("QrCode", { hasCameraPermission: true });
+    }
+  };
+  getPermissionsAsync = async () => {
+    const { status } = await Camera.requestPermissionsAsync();
+    this.setState({
+      hasCameraPermission: status === "granted",
+    });
   };
   render() {
     return (
@@ -33,55 +58,7 @@ class Attend extends Component {
             multiline={true}
             label="Any Comment"
           />
-          <Button title="Scan QR" onPress={this.handleCheck} />
-          <View style={styles.resultCtr}>
-            <View style={styles.logo}>
-              <View
-                style={
-                  this.state.checking
-                    ? { display: "flex" }
-                    : { display: "none" }
-                }
-              >
-                <Text>Checking...</Text>
-              </View>
-              <Animatable.View
-                animation="bounceIn"
-                delay={500}
-                style={[
-                  this.state.checking
-                    ? { display: "none" }
-                    : { display: "flex" },
-                  { marginVertical: 15 },
-                ]}
-              >
-                <View style={styles.imageWrapper}>
-                  <LinearGradient
-                    style={styles.image}
-                    colors={["rgba(0,0,0,0.5)", "transparent"]}
-                  >
-                    <Feather name="check" size={18} color="#fff" />
-                    <Text
-                      style={{
-                        fontSize: 15,
-                        fontWeight: "500",
-                        color: "#fff",
-                        textAlign: "center",
-                      }}
-                    >
-                      Attended
-                    </Text>
-                  </LinearGradient>
-                </View>
-              </Animatable.View>
-              <Button
-                title="Continue"
-                onPress={() => {
-                  this.props.navigation.goBack();
-                }}
-              />
-            </View>
-          </View>
+          <Button title="Scan QR" onPress={this.handleQR} />
         </View>
       </SafeAreaView>
     );

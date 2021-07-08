@@ -52,10 +52,8 @@ class InitialStack extends Component {
       }
     }
   };
-  render() {
-    const v = this.state.lo === "true" ? "tt" : "ff";
-    console.log(this.state.start);
 
+  render() {
     if (this.state.start == "true") {
       return (
         <NavigationContainer>
@@ -67,15 +65,7 @@ class InitialStack extends Component {
           </Drawer.Navigator>
         </NavigationContainer>
       );
-    } else if (this.state.start == "undefined") {
-      return (
-        <View
-          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-        >
-          <ActivityIndicator size="large"></ActivityIndicator>
-        </View>
-      );
-    } else {
+    } else if (this.state.start === null) {
       return (
         <NavigationContainer>
           <Stack.Navigator screenOptions={{ header: () => null }}>
@@ -86,6 +76,8 @@ class InitialStack extends Component {
           </Stack.Navigator>
         </NavigationContainer>
       );
+    } else {
+      return <View style={{ flex: 1 }}></View>;
     }
   }
 }

@@ -39,7 +39,7 @@ class Feed extends Component {
     super(props);
     this.state = {};
   }
-  renderItem = ({ item }) => <Post post={item} />;
+  renderItem = ({ item }) => <Post post={item} nav={this.props.navigation} />;
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>

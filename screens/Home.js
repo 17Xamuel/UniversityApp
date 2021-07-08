@@ -45,7 +45,7 @@ class Home extends Component {
               <TouchableOpacity
                 style={styles.imageWrapper}
                 onPress={() => {
-                  this.props.navigation.navigate("Attend");
+                  this.props.navigation.navigate("Attend", { data: null });
                 }}
               >
                 <LinearGradient

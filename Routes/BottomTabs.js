@@ -1,5 +1,4 @@
 import React from "react";
-// import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Links from "../screens/Links";
 import FeedStack from "./FeedStack";
@@ -9,7 +8,6 @@ import HomeStack from "./HomeStack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
-// const Tab = createMaterialBottomTabNavigator();
 
 function BottomTabs() {
   return (
