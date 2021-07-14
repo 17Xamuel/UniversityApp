@@ -1,8 +1,9 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import Feather from "react-native-vector-icons/Feather";
 import React, { Component } from "react";
 import FeedDetails from "../screens/FeedDetails";
 import Feed from "../screens/Feed";
+import Feather from "react-native-vector-icons/Feather";
+import { View, Text } from "react-native";
 
 const Stack = createStackNavigator();
 class FeedStack extends Component {
@@ -17,7 +18,21 @@ class FeedStack extends Component {
           name="Posts"
           component={Feed}
           options={{
-            header: () => null,
+            headerTitle: () => null,
+            headerLeft: () => (
+              <View style={{ flexDirection: "row" }}>
+                <Feather
+                  style={{ marginTop: 1, paddingLeft: 15, paddingRight: 5 }}
+                  name="menu"
+                  size={25}
+                  color="#000"
+                  onPress={() => {
+                    this.props.navigation.openDrawer();
+                  }}
+                />
+                <Text style={{ fontSize: 20, fontWeight: "500" }}>Posts</Text>
+              </View>
+            ),
           }}
         />
         <Stack.Screen name="FeedDetails" component={FeedDetails} />

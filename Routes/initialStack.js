@@ -12,10 +12,13 @@ import Onboarding from "../screens/onboarding";
 
 //drawer
 import DrawerContent from "./Drawer";
+import Groups from "../screens/drawer/groups";
+import Polls from "../screens/drawer/Polls";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ActivityIndicator, View, Alert, BackHandler } from "react-native";
-import Polls from "../screens/Polls";
+import Profile from "../screens/drawer/Profile";
+import About from "../screens/drawer/About";
 
 const Stack = createStackNavigator();
 
@@ -62,6 +65,9 @@ class InitialStack extends Component {
           >
             <Drawer.Screen name="Home" component={BottomTabs} />
             <Drawer.Screen name="Polls" component={Polls} />
+            <Drawer.Screen name="Groups" component={Groups} />
+            <Drawer.Screen name="Profile" component={Profile} />
+            <Drawer.Screen name="About" component={About} />
           </Drawer.Navigator>
         </NavigationContainer>
       );

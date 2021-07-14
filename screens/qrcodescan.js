@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
-import { Camera } from "expo-camera";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
 export default class BarcodeScanner extends React.Component {

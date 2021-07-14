@@ -4,14 +4,10 @@ import {
   SafeAreaView,
   Text,
   StyleSheet,
-  FlatList,
-  ScrollView,
   Image,
   Dimensions,
 } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
-import Post from "../Components/post";
-import posts from "../data/feedData";
 
 class News extends Component {
   constructor(props) {

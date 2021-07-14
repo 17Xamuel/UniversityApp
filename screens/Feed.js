@@ -44,23 +44,6 @@ class Feed extends Component {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.ctr}>
-          <View style={styles.header}>
-            <View style={{ flexDirection: "row" }}>
-              <Feather
-                style={{ marginTop: 1, paddingRight: 10 }}
-                name="menu"
-                size={25}
-                color="#000"
-                onPress={() => {
-                  this.props.navigation.openDrawer();
-                }}
-              />
-              <Text style={{ fontSize: 20, fontWeight: "500" }}>Posts</Text>
-            </View>
-            <View style={styles.plusIconCtr}>
-              <Feather name="plus" size={20} color="#fff" />
-            </View>
-          </View>
           <View style={styles.postsCtr}>
             <FlatList
               data={DATA}
@@ -77,23 +60,6 @@ class Feed extends Component {
 const styles = StyleSheet.create({
   ctr: {
     flex: 1,
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    borderBottomColor: "#a3a3a3",
-    borderBottomWidth: 1,
-  },
-  plusIconCtr: {
-    height: 30,
-    width: 30,
-    borderRadius: 15,
-    backgroundColor: "#ce03fc",
-    alignItems: "center",
-    justifyContent: "center",
   },
   postsCtr: {
     backgroundColor: "#e3e3e3",
